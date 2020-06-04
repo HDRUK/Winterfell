@@ -3,19 +3,19 @@ const path    = require('path');
 
 module.exports = {
   context   : __dirname + '/src',
-  entry     : {
-    javascript : './index.js'
-  },
+  entry: './index.js',
+  mode: 'none',
   module    : {
-    loaders : [{
-      test    : /\.js$/,
+    rules : [{
+      test: /\.(js|jsx)$/,
+      loader: 'babel-loader',
       exclude : /node_modules/,
-      loaders : ['babel-loader'],
     }],
   },
   externals : {
-    'react'        : 'React',
-    'react/addons' : 'React'
+    react        : 'react',
+    'react-dom' : 'react-dom',
+    'react/addons' : 'react'
   },
   output    : {
     libraryTarget : 'var',
@@ -24,12 +24,6 @@ module.exports = {
     path          : __dirname + '/dist'
   },
   plugins  : [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress : {
-        warnings : false
-      }
-    })
+    
   ]
 };
