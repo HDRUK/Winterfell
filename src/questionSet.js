@@ -21,6 +21,7 @@ class QuestionSet extends React.Component {
                   renderError={this.props.renderError}
                   renderRequiredAsterisk={this.props.renderRequiredAsterisk}
                   readOnly={this.props.readOnly}
+                  inReviewMode={this.props.inReviewMode}
                   questionAnswers={this.props.questionAnswers}
                   validationErrors={this.props.validationErrors}
                   onAnswerChange={this.props.onAnswerChange}

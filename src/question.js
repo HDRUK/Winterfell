@@ -118,6 +118,8 @@ class Question extends React.Component {
                              : [];
 
     let labelId = `${this.props.questionId}-label`;
+    
+    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? (this.props.inReviewMode ? true : false) : false;
 
     return (
       <div className={this.props.classes.question}>
@@ -156,6 +158,7 @@ class Question extends React.Component {
                placeholder={this.props.input.placeholder}
                required={this.props.input.required}
                readOnly={this.props.readOnly}
+               inReviewMode={this.props.inReviewMode}
                classes={this.props.classes}
                onChange={this.handleInputChange.bind(this, this.props.questionId)}
                onFocus={this.handleInputFocus.bind(this, this.props.questionId)}
@@ -166,6 +169,10 @@ class Question extends React.Component {
                      ? this.props.input.props
                      : {})}
         />
+        {inReviewMode ?
+          <button>Request Amendments</button>
+          : ''
+        }
         {!!this.props.postText
           ? (
               <p className={this.props.classes.questionPostText}>
@@ -212,6 +219,7 @@ Question.defaultProps = {
     class       : undefined,
     action      : undefined,
     disabled    : undefined,
+    reviewIndicator: undefined
   },
   classes                : {},
   questionAnswers        : {},
@@ -222,7 +230,8 @@ Question.defaultProps = {
   onKeyDown              : () => {},
   renderError            : undefined,
   renderRequiredAsterisk : undefined,
-  readOnly               : false
+  readOnly               : false,
+  inReviewMode           : false,
 };
 
 export default Question;
