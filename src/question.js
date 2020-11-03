@@ -4,6 +4,14 @@ import inputTypes from './inputTypes/index';
 
 class Question extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      requestedAmendements  : false
+    };
+  }
+
   handleInputChange(questionId, value) {
     this.props.onAnswerChange(
       questionId,
@@ -28,6 +36,12 @@ class Question extends React.Component {
 
   handleInputClick(questionSetId, questionId) {
     this.props.onQuestionClick(questionSetId, questionId);
+  }
+
+  handleActionClick(this, questionSetId, questionId) {
+    // let requestedAmendements = this.state.requestedAmendements;
+    // this.setState(!requestedAmendements);
+    console.log(this, questionSetId, questionId);
   }
 
   render() {
@@ -120,7 +134,8 @@ class Question extends React.Component {
 
     let labelId = `${this.props.questionId}-label`;
     
-    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? this.props.inReviewMode : false;
+    let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
+                            (<button onClick={this.handleActionClick(this, this.props.questionSetId, this.props.questionId)}>Request Amendments</button>) : '';
 
     return (
       <div className={this.props.classes.question}>
@@ -170,10 +185,7 @@ class Question extends React.Component {
                      ? this.props.input.props
                      : {})}
         />
-        {inReviewMode ?
-          <button>Request Amendments</button>
-          : ''
-        }
+        {renderReviewMode}
         {!!this.props.postText
           ? (
               <p className={this.props.classes.questionPostText}>
