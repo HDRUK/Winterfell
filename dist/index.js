@@ -2772,7 +2772,9 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
 
     if (typeof name !== 'undefined') {
       if (name === actions.REQUEST_AMENDMENTS) {
-        let requestedAmendements = this.state.requestedAmendements;
+        let {
+          requestedAmendements
+        } = this.state;
         this.setState({
           requestedAmendements: !requestedAmendements
         });

@@ -44,7 +44,7 @@ class Question extends React.Component {
     let { name } = e.currentTarget;
     if(typeof name !== 'undefined') {
       if(name === actions.REQUEST_AMENDMENTS) {
-        let requestedAmendements = this.state.requestedAmendements;
+        let { requestedAmendements }  = this.state;
         this.setState({requestedAmendements: !requestedAmendements});
       }
     }
