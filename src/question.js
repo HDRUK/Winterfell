@@ -48,6 +48,7 @@ class Question extends React.Component {
         this.setState(!requestedAmendements);
       }
     }
+    // push up event
     console.log(this.props.questionSetId, this.props.questionId);
   }
 
@@ -142,7 +143,7 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
-                            ( <div className={frm-col}>
+                            ( <div className="frm-col">
                                 <button className="btn-tertiary-sm" name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
                                   {this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments'}
                                 </button>

@@ -2775,7 +2775,8 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
         let requestedAmendements = this.state.requestedAmendements;
         this.setState(!requestedAmendements);
       }
-    }
+    } // push up event
+
 
     console.log(this.props.questionSetId, this.props.questionId);
   }
@@ -2847,7 +2848,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     }) : [];
     let labelId = `${this.props.questionId}-label`;
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
-      className: frm - col
+      className: "frm-col"
     }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
       className: "btn-tertiary-sm",
       name: actions.REQUEST_AMENDMENTS,
