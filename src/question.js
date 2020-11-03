@@ -40,6 +40,7 @@ class Question extends React.Component {
   }
 
   handleActionClick(e, questionSetId, questionId) {
+    e.preventDefault();
     // let requestedAmendements = this.state.requestedAmendements;
     // this.setState(!requestedAmendements);
     console.log(e, questionSetId, questionId);
