@@ -2773,7 +2773,9 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     if (typeof name !== 'undefined') {
       if (name === actions.REQUEST_AMENDMENTS) {
         let requestedAmendements = this.state.requestedAmendements;
-        this.setState(!requestedAmendements);
+        this.setState({
+          requestedAmendements: !requestedAmendements
+        });
       }
     } // push up event
 
