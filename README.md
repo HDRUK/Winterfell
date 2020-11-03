@@ -6,14 +6,12 @@ Winterfell has been modified and extended, this allows you to build up complex, 
 
 Winterfell was initially made for a project in a sector that required a large, complex form with questions that would result in more questions or different pages when you clicked next. With an easy to write schema and a high level of customisation, comes a great power.
 
-[View Demo](http://winterfell.andrewhathaway.net) -
-
 ## Usage
 
-First install [Winterfell via npm](https://www.npmjs.com/package/winterfell)
+Include winterfell in dependencies within package.json
 
-```bash
-$ npm install winterfell --save
+```package.json
+"winterfell": "github:HDRUK/Winterfell
 ```
 
 Winterfell uses a JSON schema to render your form. We will go through that later.
