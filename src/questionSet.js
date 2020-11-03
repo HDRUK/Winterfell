@@ -70,6 +70,7 @@ QuestionSet.defaultProps = {
   renderError            : undefined,
   renderRequiredAsterisk : undefined,
   readOnly               : false, 
+  inReviewMode           : false, 
   onAnswerChange         : () => {},
   onQuestionBlur         : () => {},
   onQuestionFocus        : () => {},
