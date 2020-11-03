@@ -41,7 +41,7 @@ class Question extends React.Component {
 
   handleActionClick(e) {
     e.preventDefault();
-    const { name } = e.currentTarget();
+    const { name } = e.currentTarget;
     if(typeof name !== 'undefined') {
       if(name === action.REQUEST_AMENDMENTS) {
         let requestedAmendements = this.state.requestedAmendements;

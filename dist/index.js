@@ -2768,7 +2768,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     e.preventDefault();
     const {
       name
-    } = e.currentTarget();
+    } = e.currentTarget;
 
     if (typeof name !== 'undefined') {
       if (name === action.REQUEST_AMENDMENTS) {
