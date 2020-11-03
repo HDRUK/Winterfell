@@ -2791,6 +2791,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
           classes: this.props.classes,
           renderError: this.props.renderError,
           readOnly: this.props.readOnly,
+          inReviewMode: this.props.inReviewMode,
           questionAnswers: this.props.questionAnswers,
           validationErrors: this.props.validationErrors,
           onAnswerChange: this.props.onAnswerChange,
@@ -2817,7 +2818,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       }, error.message);
     }) : [];
     let labelId = `${this.props.questionId}-label`;
-    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? this.props.inReviewMode ? true : false : false;
+    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? this.props.inReviewMode : false;
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {

@@ -120,7 +120,7 @@ class Question extends React.Component {
 
     let labelId = `${this.props.questionId}-label`;
     
-    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? (this.props.inReviewMode ? true : false) : false;
+    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? this.props.inReviewMode : false;
 
     return (
       <div className={this.props.classes.question}>
