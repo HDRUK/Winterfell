@@ -2850,7 +2850,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: "frm-col"
     }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
-      className: "btn-tertiary-sm",
+      className: "button-tertiary-sm",
       name: actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
     }, this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments')) : '';
