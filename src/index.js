@@ -127,7 +127,6 @@ class Winterfell extends React.Component {
     this.props.onQuestionClick(questionSetId, questionId);
   }
 
-
   handleSubmit(action) {
     if (this.props.disableSubmit) {
       this.props.onSubmit(this.state.questionAnswers, action);
@@ -176,6 +175,7 @@ class Winterfell extends React.Component {
                          renderError={this.props.renderError}
                          renderRequiredAsterisk={this.props.renderRequiredAsterisk}
                          readOnly={this.props.readOnly}
+                         inReviewMode={this.props.inReviewMode}
                          onQuestionFocus={this.handleQuestionFocus.bind(this)}
                          onQuestionClick={this.handleQuestionClick.bind(this)}
                          onAnswerChange={this.handleAnswerChange.bind(this)}
@@ -217,6 +217,7 @@ Winterfell.defaultProps = {
   renderError            : undefined,
   renderRequiredAsterisk : undefined,
   readOnly               : false,
+  inReviewMode           : false,
   validationErrors       : {},
   onSubmit               : () => {},
   onUpdate               : () => {},
