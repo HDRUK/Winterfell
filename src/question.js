@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import inputTypes from './inputTypes/index';
+import { actions } from './lib/keyActions';
 
 class Question extends React.Component {
 
@@ -38,10 +39,10 @@ class Question extends React.Component {
     this.props.onQuestionClick(questionSetId, questionId);
   }
 
-  handleActionClick(this, questionSetId, questionId) {
+  handleActionClick(e, questionSetId, questionId) {
     // let requestedAmendements = this.state.requestedAmendements;
     // this.setState(!requestedAmendements);
-    console.log(this, questionSetId, questionId);
+    console.log(e, questionSetId, questionId);
   }
 
   render() {
@@ -135,7 +136,7 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
-                            (<button onClick={this.handleActionClick(this, this.props.questionSetId, this.props.questionId)}>Request Amendments</button>) : '';
+                            (<button name={actions.REQUEST_AMENDMENTS} onClick={e => this.handleActionClick.bind(e, this.props.questionSetId, this.props.questionId)}>Request Amendments</button>) : '';
 
     return (
       <div className={this.props.classes.question}>
@@ -240,6 +241,7 @@ Question.defaultProps = {
   onAnswerChange         : () => {},
   onQuestionBlur         : () => {},
   onQuestionFocus        : () => {},
+  onKeyDown              : () => {},
   onKeyDown              : () => {},
   renderError            : undefined,
   renderRequiredAsterisk : undefined,
