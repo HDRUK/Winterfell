@@ -43,7 +43,7 @@ class Question extends React.Component {
     e.preventDefault();
     // let requestedAmendements = this.state.requestedAmendements;
     // this.setState(!requestedAmendements);
-    console.log(e, questionSetId, questionId);
+    console.log(e, this.props.questionSetId, this.props.questionId);
   }
 
   render() {
