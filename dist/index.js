@@ -2764,7 +2764,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     this.props.onQuestionClick(questionSetId, questionId);
   }
 
-  handleActionClick(e, questionSetId, questionId) {
+  handleActionClick(e) {
     e.preventDefault(); // let requestedAmendements = this.state.requestedAmendements;
     // this.setState(!requestedAmendements);
 
@@ -2839,7 +2839,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     let labelId = `${this.props.questionId}-label`;
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
       name: actions.REQUEST_AMENDMENTS,
-      onClick: e => this.handleActionClick.bind(e, this.props.questionSetId, this.props.questionId)
+      onClick: this.handleActionClick.bind(this)
     }, "Request Amendments") : '';
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question

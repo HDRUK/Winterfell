@@ -39,7 +39,7 @@ class Question extends React.Component {
     this.props.onQuestionClick(questionSetId, questionId);
   }
 
-  handleActionClick(e, questionSetId, questionId) {
+  handleActionClick(e) {
     e.preventDefault();
     // let requestedAmendements = this.state.requestedAmendements;
     // this.setState(!requestedAmendements);
@@ -137,7 +137,7 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
-                            (<button name={actions.REQUEST_AMENDMENTS} onClick={e => this.handleActionClick.bind(e, this.props.questionSetId, this.props.questionId)}>Request Amendments</button>) : '';
+                            (<button name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>Request Amendments</button>) : '';
 
     return (
       <div className={this.props.classes.question}>
