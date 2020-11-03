@@ -41,9 +41,14 @@ class Question extends React.Component {
 
   handleActionClick(e) {
     e.preventDefault();
-    // let requestedAmendements = this.state.requestedAmendements;
-    // this.setState(!requestedAmendements);
-    console.log(e, this.props.questionSetId, this.props.questionId);
+    const { name } = e.currentTarget();
+    if(typeof name !== 'undefined') {
+      if(name === action.REQUEST_AMENDMENTS) {
+        let requestedAmendements = this.state.requestedAmendements;
+        this.setState(!requestedAmendements);
+      }
+    }
+    console.log(this.props.questionSetId, this.props.questionId);
   }
 
   render() {
@@ -137,7 +142,12 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
-                            (<button name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>Request Amendments</button>) : '';
+                            ( <div className={frm-col}>
+                                <button className="btn-tertiary-sm" name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
+                                  {this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments'}
+                                </button>
+                              </div>
+                            ) : '';
 
     return (
       <div className={this.props.classes.question}>

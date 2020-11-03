@@ -2765,10 +2765,19 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
   }
 
   handleActionClick(e) {
-    e.preventDefault(); // let requestedAmendements = this.state.requestedAmendements;
-    // this.setState(!requestedAmendements);
+    e.preventDefault();
+    const {
+      name
+    } = e.currentTarget();
 
-    console.log(e, this.props.questionSetId, this.props.questionId);
+    if (typeof name !== 'undefined') {
+      if (name === action.REQUEST_AMENDMENTS) {
+        let requestedAmendements = this.state.requestedAmendements;
+        this.setState(!requestedAmendements);
+      }
+    }
+
+    console.log(this.props.questionSetId, this.props.questionId);
   }
 
   render() {
@@ -2837,10 +2846,13 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       }, error.message);
     }) : [];
     let labelId = `${this.props.questionId}-label`;
-    let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
+    let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
+      className: frm - col
+    }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
+      className: "btn-tertiary-sm",
       name: actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
-    }, "Request Amendments") : '';
+    }, this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments')) : '';
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
