@@ -2817,6 +2817,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       }, error.message);
     }) : [];
     let labelId = `${this.props.questionId}-label`;
+    let inReviewMode = typeof this.props.inReviewMode !== 'undefined' ? this.props.inReviewMode ? true : false : false;
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
@@ -2840,13 +2841,14 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       placeholder: this.props.input.placeholder,
       required: this.props.input.required,
       readOnly: this.props.readOnly,
+      inReviewMode: this.props.inReviewMode,
       classes: this.props.classes,
       onChange: this.handleInputChange.bind(this, this.props.questionId),
       onFocus: this.handleInputFocus.bind(this, this.props.questionId),
       onClick: this.handleInputClick.bind(this, this.props.questionSetId, this.props.questionId),
       onBlur: this.handleInputBlur.bind(this, this.props.questionId),
       onKeyDown: this.props.onKeyDown
-    }, typeof this.props.input.props === 'object' ? this.props.input.props : {})), !!this.props.postText ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
+    }, typeof this.props.input.props === 'object' ? this.props.input.props : {})), inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", null, "Request Amendments") : '', !!this.props.postText ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
       className: this.props.classes.questionPostText
     }, this.props.postText) : undefined, conditionalItems);
   }
@@ -2879,7 +2881,8 @@ question_Question.defaultProps = {
     icon: undefined,
     class: undefined,
     action: undefined,
-    disabled: undefined
+    disabled: undefined,
+    reviewIndicator: undefined
   },
   classes: {},
   questionAnswers: {},
@@ -2890,7 +2893,8 @@ question_Question.defaultProps = {
   onKeyDown: () => {},
   renderError: undefined,
   renderRequiredAsterisk: undefined,
-  readOnly: false
+  readOnly: false,
+  inReviewMode: false
 };
 /* harmony default export */ var question_0 = (question_Question);
 // CONCATENATED MODULE: ./questionSet.js
@@ -2916,6 +2920,7 @@ class questionSet_QuestionSet extends external_commonjs_react_commonjs2_react_am
         renderError: this.props.renderError,
         renderRequiredAsterisk: this.props.renderRequiredAsterisk,
         readOnly: this.props.readOnly,
+        inReviewMode: this.props.inReviewMode,
         questionAnswers: this.props.questionAnswers,
         validationErrors: this.props.validationErrors,
         onAnswerChange: this.props.onAnswerChange,
