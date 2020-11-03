@@ -74,6 +74,7 @@ class Question extends React.Component {
                           classes={this.props.classes}
                           renderError={this.props.renderError}
                           readOnly={this.props.readOnly}
+                          inReviewMode={this.props.inReviewMode}
                           questionAnswers={this.props.questionAnswers}
                           validationErrors={this.props.validationErrors}
                           onAnswerChange={this.props.onAnswerChange}
