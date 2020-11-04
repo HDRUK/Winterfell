@@ -25,6 +25,7 @@ class QuestionSet extends React.Component {
                   questionAnswers={this.props.questionAnswers}
                   validationErrors={this.props.validationErrors}
                   onAnswerChange={this.props.onAnswerChange}
+                  onActionChange={this.props.onActionChange}
                   onQuestionBlur={this.props.onQuestionBlur}
                   onQuestionFocus={this.props.onQuestionFocus}
                   onQuestionClick={this.props.onQuestionClick}
@@ -72,6 +73,7 @@ QuestionSet.defaultProps = {
   readOnly               : false, 
   inReviewMode           : false, 
   onAnswerChange         : () => {},
+  onActionChange         : () => {},
   onQuestionBlur         : () => {},
   onQuestionFocus        : () => {},
   onQuestionClick        : () => {},

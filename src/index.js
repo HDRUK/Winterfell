@@ -123,6 +123,10 @@ class Winterfell extends React.Component {
     this.props.onQuestionFocus(questionId);
   }
 
+  handleActionChange(questionSetId, questionId, action) {
+    this.props.onActionChange(questionSetId, questionId, action);
+  }
+
   handleQuestionClick(questionSetId, questionId) {
     this.props.onQuestionClick(questionSetId, questionId);
   }
@@ -177,6 +181,7 @@ class Winterfell extends React.Component {
                          readOnly={this.props.readOnly}
                          inReviewMode={this.props.inReviewMode}
                          onQuestionFocus={this.handleQuestionFocus.bind(this)}
+                         onActionChange={this.handleActionChange.bind(this)}
                          onQuestionClick={this.handleQuestionClick.bind(this)}
                          onAnswerChange={this.handleAnswerChange.bind(this)}
                          onPanelBack={this.handleBackButtonClick.bind(this)}
@@ -224,7 +229,8 @@ Winterfell.defaultProps = {
   onSwitchPanel          : () => {},
   onRender               : () => {},
   onQuestionFocus        : () => {},
-  onQuestionClick        : () => {}
+  onQuestionClick        : () => {},
+  onActionChange         : () => {},
 };
 
 export default Winterfell;

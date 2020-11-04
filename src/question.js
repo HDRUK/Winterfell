@@ -49,8 +49,8 @@ class Question extends React.Component {
     e.preventDefault();
     let { name } = e.currentTarget;
     if(typeof name !== 'undefined') {
-      if(name === actions.REQUEST_AMENDMENTS) {
         let { requestedAmendements }  = this.state;
+        let action = name;
         this.setState({
           requestedAmendements: !requestedAmendements, 
           status: {
@@ -59,7 +59,8 @@ class Question extends React.Component {
             className: `${this.props.classes.alert} ${this.props.classes.alertSuccess}`
           }
         });
-      }
+
+      this.props.onActionChange(questionSetId, questionId, action);
     }
     // push up event
     console.log(this.props.questionSetId, this.props.questionId);
@@ -113,6 +114,7 @@ class Question extends React.Component {
                           questionAnswers={this.props.questionAnswers}
                           validationErrors={this.props.validationErrors}
                           onAnswerChange={this.props.onAnswerChange}
+                          onActionChange={this.props.onActionChange}
                           onQuestionFocus={this.props.onQuestionFocus}
                           onQuestionClick={this.props.onQuestionClick}
                           onQuestionBlur={this.props.onQuestionBlur}
@@ -157,7 +159,7 @@ class Question extends React.Component {
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
                             ( <div className={this.props.classes.winContainerEnd}>
-                                <button className={this.props.classes.buttonTertiarySmall} name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
+                                <button className={this.props.classes.buttonTertiarySmall} name={this.state.requestedAmendements ? actions.REQUEST_AMENDMENTS : actions.UNDO_REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
                                   {this.state.requestedAmendements ? `Remove update request` : 'Request Amendments'}
                                 </button>
                               </div>
@@ -269,6 +271,7 @@ Question.defaultProps = {
   questionAnswers        : {},
   validationErrors       : {},
   onAnswerChange         : () => {},
+  onActionChange         : () => {},
   onQuestionBlur         : () => {},
   onQuestionFocus        : () => {},
   onKeyDown              : () => {},

@@ -2860,19 +2860,19 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     } = e.currentTarget;
 
     if (typeof name !== 'undefined') {
-      if (name === actions.REQUEST_AMENDMENTS) {
-        let {
-          requestedAmendements
-        } = this.state;
-        this.setState({
-          requestedAmendements: !requestedAmendements,
-          status: {
-            icon: types_status.SUCCESS,
-            text: 'You have requested an update on 13 Jan 2021',
-            className: `${this.props.classes.alert} ${this.props.classes.alertSuccess}`
-          }
-        });
-      }
+      let {
+        requestedAmendements
+      } = this.state;
+      let action = name;
+      this.setState({
+        requestedAmendements: !requestedAmendements,
+        status: {
+          icon: types_status.SUCCESS,
+          text: 'You have requested an update on 13 Jan 2021',
+          className: `${this.props.classes.alert} ${this.props.classes.alertSuccess}`
+        }
+      });
+      this.props.onActionChange(questionSetId, questionId, action);
     } // push up event
 
 
@@ -2922,6 +2922,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
           questionAnswers: this.props.questionAnswers,
           validationErrors: this.props.validationErrors,
           onAnswerChange: this.props.onAnswerChange,
+          onActionChange: this.props.onActionChange,
           onQuestionFocus: this.props.onQuestionFocus,
           onQuestionClick: this.props.onQuestionClick,
           onQuestionBlur: this.props.onQuestionBlur,
@@ -2949,7 +2950,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       className: this.props.classes.winContainerEnd
     }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
       className: this.props.classes.buttonTertiarySmall,
-      name: actions.REQUEST_AMENDMENTS,
+      name: this.state.requestedAmendements ? actions.REQUEST_AMENDMENTS : actions.UNDO_REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
     }, this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
     let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(components_Alert, {
@@ -3025,6 +3026,7 @@ question_Question.defaultProps = {
   questionAnswers: {},
   validationErrors: {},
   onAnswerChange: () => {},
+  onActionChange: () => {},
   onQuestionBlur: () => {},
   onQuestionFocus: () => {},
   onKeyDown: () => {},
@@ -3062,6 +3064,7 @@ class questionSet_QuestionSet extends external_commonjs_react_commonjs2_react_am
         questionAnswers: this.props.questionAnswers,
         validationErrors: this.props.validationErrors,
         onAnswerChange: this.props.onAnswerChange,
+        onActionChange: this.props.onActionChange,
         onQuestionBlur: this.props.onQuestionBlur,
         onQuestionFocus: this.props.onQuestionFocus,
         onQuestionClick: this.props.onQuestionClick,
@@ -3096,6 +3099,7 @@ questionSet_QuestionSet.defaultProps = {
   readOnly: false,
   inReviewMode: false,
   onAnswerChange: () => {},
+  onActionChange: () => {},
   onQuestionBlur: () => {},
   onQuestionFocus: () => {},
   onQuestionClick: () => {},
@@ -3253,6 +3257,10 @@ class questionPanel_QuestionPanel extends external_commonjs_react_commonjs2_reac
     this.props.onQuestionClick(questionSetId, questionId);
   }
 
+  handleActionChange(questionSetId, questionId, action) {
+    this.props.onActionChange(questionSetId, questionId, action);
+  }
+
   handleInputKeyDown(e) {
     if (keycodez_default.a[e.keyCode] === 'enter') {
       e.preventDefault();
@@ -3285,6 +3293,7 @@ class questionPanel_QuestionPanel extends external_commonjs_react_commonjs2_reac
         inReviewMode: this.props.inReviewMode,
         validationErrors: this.state.validationErrors,
         onAnswerChange: this.handleAnswerChange.bind(this),
+        onActionChange: this.handleActionChange.bind(this),
         onQuestionFocus: this.handleQuestionFocus.bind(this),
         onQuestionClick: this.handleQuestionClick.bind(this),
         onQuestionBlur: this.handleQuestionBlur.bind(this),
@@ -3342,6 +3351,7 @@ questionPanel_QuestionPanel.defaultProps = {
   readOnly: false,
   inReviewMode: false,
   onAnswerChange: () => {},
+  onActionChange: () => {},
   onQuestionFocus: () => {},
   onQuestionClick: () => {},
   onSwitchPanel: () => {},
@@ -3452,6 +3462,10 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
     this.props.onQuestionFocus(questionId);
   }
 
+  handleActionChange(questionSetId, questionId, action) {
+    this.props.onActionChange(questionSetId, questionId, action);
+  }
+
   handleQuestionClick(questionSetId, questionId) {
     this.props.onQuestionClick(questionSetId, questionId);
   }
@@ -3508,6 +3522,7 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
       readOnly: this.props.readOnly,
       inReviewMode: this.props.inReviewMode,
       onQuestionFocus: this.handleQuestionFocus.bind(this),
+      onActionChange: this.handleActionChange.bind(this),
       onQuestionClick: this.handleQuestionClick.bind(this),
       onAnswerChange: this.handleAnswerChange.bind(this),
       onPanelBack: this.handleBackButtonClick.bind(this),
@@ -3550,7 +3565,8 @@ index_Winterfell.defaultProps = {
   onSwitchPanel: () => {},
   onRender: () => {},
   onQuestionFocus: () => {},
-  onQuestionClick: () => {}
+  onQuestionClick: () => {},
+  onActionChange: () => {}
 };
 /* harmony default export */ var index = __webpack_exports__["default"] = (index_Winterfell);
 

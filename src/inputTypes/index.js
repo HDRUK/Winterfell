@@ -9,7 +9,7 @@ import RadioOptionsInput    from './radioOptionsInput';
 import SelectInput          from './selectInput';
 import TextareaInput        from './textareaInput';
 import TextInput            from './textInput';
-import ButtonInput            from './buttonInput';
+import ButtonInput          from './buttonInput';
 
 let inputTypes = {
   checkboxInput         : CheckboxInput,
