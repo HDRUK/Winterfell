@@ -2,7 +2,7 @@ import React from "react";
 import Success from '../images/tick.svg';
 import {status} from '../lib/types';
 
-class Status extends React.Component {
+class Alert extends React.Component {
 
   render() {
 
@@ -23,7 +23,7 @@ class Status extends React.Component {
   }
 }
 
-Status.defaultProps = {
+Alert.defaultProps = {
   status: {
     icon: '',
     text: '',
@@ -31,4 +31,4 @@ Status.defaultProps = {
   }
 }
 
-export default Status;
+export default Alert;

@@ -2777,6 +2777,44 @@ const types_status = {
   ERROR: 'error',
   INFO: 'info'
 };
+// CONCATENATED MODULE: ./components/Alert.js
+
+
+
+
+class Alert_Alert extends external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.Component {
+  render() {
+    const {
+      icon,
+      text,
+      className
+    } = this.props.status;
+
+    const renderIcon = () => {
+      switch (icon) {
+        case types_status.SUCCESS:
+          return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(tick, null);
+
+        default:
+          return '';
+      }
+    };
+
+    return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
+      className: className
+    }, renderIcon(), " ", text);
+  }
+
+}
+
+Alert_Alert.defaultProps = {
+  status: {
+    icon: '',
+    text: '',
+    class: ''
+  }
+};
+/* harmony default export */ var components_Alert = (Alert_Alert);
 // CONCATENATED MODULE: ./question.js
 function question_extends() { question_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return question_extends.apply(this, arguments); }
 
@@ -2914,7 +2952,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       name: actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
     }, this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
-    let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Status, {
+    let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(components_Alert, {
       status: this.state.status
     }) : '';
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {

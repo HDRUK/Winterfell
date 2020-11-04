@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import inputTypes from './inputTypes/index';
-import Image from './images/tick.svg';
+import Alert from './components/Alert';
 import { actions, status } from './lib/types';
 
 class Question extends React.Component {
@@ -164,7 +164,7 @@ class Question extends React.Component {
                             ) : '';
 
     let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? 
-                                (<Status status={this.state.status}/>) : '';
+                                (<Alert status={this.state.status}/>) : '';
     
 
     return (
