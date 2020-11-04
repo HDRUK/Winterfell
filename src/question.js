@@ -159,7 +159,7 @@ class Question extends React.Component {
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
                             ( <div className={this.props.classes.winContainerEnd}>
-                                <button className={this.props.classes.buttonTertiarySmall} name={this.state.requestedAmendements ? actions.REQUEST_AMENDMENTS : actions.UNDO_REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
+                                <button className={this.props.classes.buttonTertiarySmall} name={this.state.requestedAmendements ? actions.UNDO_REQUEST_AMENDMENTS : actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
                                   {this.state.requestedAmendements ? `Remove update request` : 'Request Amendments'}
                                 </button>
                               </div>

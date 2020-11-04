@@ -2950,7 +2950,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       className: this.props.classes.winContainerEnd
     }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
       className: this.props.classes.buttonTertiarySmall,
-      name: this.state.requestedAmendements ? actions.REQUEST_AMENDMENTS : actions.UNDO_REQUEST_AMENDMENTS,
+      name: this.state.requestedAmendements ? actions.UNDO_REQUEST_AMENDMENTS : actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
     }, this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
     let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(components_Alert, {
