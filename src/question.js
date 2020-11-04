@@ -56,7 +56,7 @@ class Question extends React.Component {
           status: {
             icon: status.SUCCESS, 
             text: 'You have requested an update on 13 Jan 2021' , 
-            className: `${this.props.classes.alert} ${this.props.classes.alert-sc}`
+            className: `${this.props.classes.alert} ${this.props.classes.alert-success}`
           }
         });
       }
