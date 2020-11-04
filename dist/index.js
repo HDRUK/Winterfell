@@ -3463,7 +3463,10 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
   }
 
   handleActionChange(questionSetId, questionId, action) {
-    this.props.onActionChange(questionSetId, questionId, action);
+    let {
+      panelId
+    } = this.state.currentPanel;
+    this.props.onActionChange(panelId, questionSetId, questionId, action);
   }
 
   handleQuestionClick(questionSetId, questionId) {
