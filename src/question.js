@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import inputTypes from './inputTypes/index';
 import Image from './images/tick.svg';
-import { actions } from './lib/keyActions';
+import { actions, status } from './lib/types';
 
 class Question extends React.Component {
 
@@ -10,7 +10,12 @@ class Question extends React.Component {
     super(props);
 
     this.state = {
-      requestedAmendements  : false
+      requestedAmendements  : false,
+      status: {
+        icon: '',
+        text: '',
+        class: '',
+      }
     };
   }
 
@@ -46,7 +51,14 @@ class Question extends React.Component {
     if(typeof name !== 'undefined') {
       if(name === actions.REQUEST_AMENDMENTS) {
         let { requestedAmendements }  = this.state;
-        this.setState({requestedAmendements: !requestedAmendements});
+        this.setState({
+          requestedAmendements: !requestedAmendements, 
+          status: {
+            icon: status.SUCCESS, 
+            text: 'You have requested an update on 13 Jan 2021' , 
+            className: `${this.props.classes.alert} ${this.props.classes.alert-sc}`
+          }
+        });
       }
     }
     // push up event
@@ -146,10 +158,14 @@ class Question extends React.Component {
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
                             ( <div className={this.props.classes.winContainerEnd}>
                                 <button className={this.props.classes.buttonTertiarySmall} name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
-                                  <Image /> {this.state.requestedAmendements ? `Remove update request` : 'Request Amendments'}
+                                  {this.state.requestedAmendements ? `Remove update request` : 'Request Amendments'}
                                 </button>
                               </div>
                             ) : '';
+
+    let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? 
+                                (<Status status={this.state.status}/>) : '';
+    
 
     return (
       <div className={this.props.classes.question}>
@@ -199,6 +215,7 @@ class Question extends React.Component {
                      ? this.props.input.props
                      : {})}
         />
+        {renderQuestionStatus}
         {renderReviewMode}
         {!!this.props.postText
           ? (

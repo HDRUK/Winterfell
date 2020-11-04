@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path    = require('path');
-
+// entry -> output
 module.exports = {
   mode: 'production',
   context   : __dirname + '/src',
@@ -54,6 +54,6 @@ module.exports = {
     libraryTarget : 'umd',
     library       : 'winterfell',
     filename      : 'index.js',
-    path          : __dirname + '/dist'
+    path          : path.join(__dirname, 'dist')
   }
 };

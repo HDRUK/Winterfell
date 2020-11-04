@@ -2766,9 +2766,16 @@ function SvgTick(props) {
 }
 
 /* harmony default export */ var tick = (SvgTick);
-// CONCATENATED MODULE: ./lib/keyActions.js
+// CONCATENATED MODULE: ./lib/types.js
 const actions = {
-  REQUEST_AMENDMENTS: 'REQUEST_AMENDMENTS'
+  REQUEST_AMENDMENTS: 'REQUEST_AMENDMENTS',
+  UNDO_REQUEST_AMENDMENTS: 'UNDO_REQUEST_AMENDMENTS'
+};
+const types_status = {
+  SUCCESS: 'success',
+  ATTENTION: 'attention',
+  ERROR: 'error',
+  INFO: 'info'
 };
 // CONCATENATED MODULE: ./question.js
 function question_extends() { question_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return question_extends.apply(this, arguments); }
@@ -2783,7 +2790,12 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
   constructor(props) {
     super(props);
     this.state = {
-      requestedAmendements: false
+      requestedAmendements: false,
+      status: {
+        icon: '',
+        text: '',
+        class: ''
+      }
     };
   }
 
@@ -2815,7 +2827,12 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
           requestedAmendements
         } = this.state;
         this.setState({
-          requestedAmendements: !requestedAmendements
+          requestedAmendements: !requestedAmendements,
+          status: {
+            icon: types_status.SUCCESS,
+            text: 'You have requested an update on 13 Jan 2021',
+            className: `${this.props.classes.alert} ${this.props.classes.alert - sc}`
+          }
         });
       }
     } // push up event
@@ -2896,7 +2913,10 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       className: this.props.classes.buttonTertiarySmall,
       name: actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
-    }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(tick, null), " ", this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
+    }, this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
+    let renderQuestionStatus = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode && this.state.requestedAmendements ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Status, {
+      status: this.state.status
+    }) : '';
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
@@ -2927,7 +2947,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       onClick: this.handleInputClick.bind(this, this.props.questionSetId, this.props.questionId),
       onBlur: this.handleInputBlur.bind(this, this.props.questionId),
       onKeyDown: this.props.onKeyDown
-    }, typeof this.props.input.props === 'object' ? this.props.input.props : {})), renderReviewMode, !!this.props.postText ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
+    }, typeof this.props.input.props === 'object' ? this.props.input.props : {})), renderQuestionStatus, renderReviewMode, !!this.props.postText ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
       className: this.props.classes.questionPostText
     }, this.props.postText) : undefined, conditionalItems);
   }
