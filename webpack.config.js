@@ -9,15 +9,20 @@ module.exports = {
     minimize: false
   },
   module    : {
-    rules : [{
-      test    : /\.js$/,
-      exclude : /node_modules/,
-      use: [
-        {
-          loader: 'babel-loader'
-        }
-      ],
-    }],
+    rules : [
+      {
+        test    : /\.(js|jsx)$/,
+        exclude : /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      }],
   },
   resolve: {      
     alias: {          

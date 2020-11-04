@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import inputTypes from './inputTypes/index';
+import Image from './images/tick.svg';
 import { actions } from './lib/keyActions';
 
 class Question extends React.Component {
@@ -143,9 +144,9 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
     
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ?
-                            ( <div className="frm-col">
-                                <button className="button-tertiary-sm" name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
-                                  {this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments'}
+                            ( <div className={this.props.classes.winContainerEnd}>
+                                <button className={this.props.classes.buttonTertiarySmall} name={actions.REQUEST_AMENDMENTS} onClick={this.handleActionClick.bind(this)}>
+                                  <Image /> {this.state.requestedAmendements ? `Remove update request` : 'Request Amendments'}
                                 </button>
                               </div>
                             ) : '';

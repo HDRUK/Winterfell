@@ -2728,12 +2728,51 @@ inputTypes.addInputTypes = types => {
 };
 
 /* harmony default export */ var inputTypes_0 = (inputTypes);
+// CONCATENATED MODULE: ./images/tick.svg
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref = /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("defs", null, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("path", {
+  id: "tick_svg__a",
+  d: "M9.988 17a1 1 0 01-.707-.292l-3-3a.999.999 0 011.414-1.414l2.2 2.2 6.303-8.107a1 1 0 011.58 1.228l-7 9a1 1 0 01-.728.386h-.062z"
+}));
+
+var _ref2 = /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("g", {
+  fill: "none",
+  fillRule: "evenodd"
+}, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("mask", {
+  id: "tick_svg__b",
+  fill: "#fff"
+}, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("use", {
+  xlinkHref: "#tick_svg__a"
+})), /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("use", {
+  fill: "#3db28c",
+  fillRule: "nonzero",
+  xlinkHref: "#tick_svg__a"
+}), /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("g", {
+  fill: "#3db28c",
+  mask: "url(#tick_svg__b)"
+}, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("path", {
+  d: "M0 0h24v24H0z"
+})));
+
+function SvgTick(props) {
+  return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_["createElement"]("svg", _extends({
+    width: 16,
+    height: 16,
+    viewBox: "0 0 24 24"
+  }, props), _ref, _ref2);
+}
+
+/* harmony default export */ var tick = (SvgTick);
 // CONCATENATED MODULE: ./lib/keyActions.js
 const actions = {
   REQUEST_AMENDMENTS: 'REQUEST_AMENDMENTS'
 };
 // CONCATENATED MODULE: ./question.js
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function question_extends() { question_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return question_extends.apply(this, arguments); }
+
 
 
 
@@ -2852,12 +2891,12 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     }) : [];
     let labelId = `${this.props.questionId}-label`;
     let renderReviewMode = typeof this.props.inReviewMode !== 'undefined' && this.props.inReviewMode ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
-      className: "frm-col"
+      className: this.props.classes.winContainerEnd
     }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("button", {
-      className: "button-tertiary-sm",
+      className: this.props.classes.buttonTertiarySmall,
       name: actions.REQUEST_AMENDMENTS,
       onClick: this.handleActionClick.bind(this)
-    }, this.state.requestedAmendements ? 'Remove update request' : 'Request Amendments')) : '';
+    }, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(tick, null), " ", this.state.requestedAmendements ? `Remove update request` : 'Request Amendments')) : '';
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
@@ -2866,7 +2905,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       htmlFor: this.props.questionId
     }, this.props.question, typeof this.props.renderRequiredAsterisk !== 'undefined' && this.props.input.required ? this.props.renderRequiredAsterisk() : undefined) : undefined, !!this.props.text ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
       className: this.props.classes.questionText
-    }, this.props.text) : undefined, validationErrors, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Input, _extends({
+    }, this.props.text) : undefined, validationErrors, /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Input, question_extends({
       name: this.props.questionId,
       id: this.props.questionId,
       questionSetId: this.props.questionSetId,
