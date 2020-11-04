@@ -2872,7 +2872,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
           className: `${this.props.classes.alert} ${this.props.classes.alertSuccess}`
         }
       });
-      this.props.onActionChange(questionSetId, questionId, action);
+      this.props.onActionChange(this.props.questionSetId, this.props.questionId, action);
     } // push up event
 
 

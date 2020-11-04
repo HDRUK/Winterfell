@@ -60,7 +60,7 @@ class Question extends React.Component {
           }
         });
 
-      this.props.onActionChange(questionSetId, questionId, action);
+      this.props.onActionChange(this.props.questionSetId, this.props.questionId, action);
     }
     // push up event
     console.log(this.props.questionSetId, this.props.questionId);
