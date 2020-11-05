@@ -2801,8 +2801,7 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     let labelId = `${this.props.questionId}-label`;
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question,
-      id: this.props.questionId,
-      onClick: e => this.handleInputClick(e, this.props.questionSetId, this.props.questionId)
+      id: this.props.questionId
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
       className: this.props.classes.label,
       id: labelId,
