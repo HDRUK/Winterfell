@@ -10,6 +10,10 @@ class CheckboxInput extends React.Component {
     };
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   handleChange(e) {
     if (e) {
       this.setState({
@@ -48,6 +52,7 @@ class CheckboxInput extends React.Component {
                              : undefined}
                  disabled={this.props.readOnly}
                  onChange={this.handleChange.bind(this)}
+                 onClick={this.handleCheckboxClick.bind(this)}
                  onBlur={this.props.onBlur.bind(null, (this.state.checked
                                                         ? this.props.value
                                                         : undefined))} />

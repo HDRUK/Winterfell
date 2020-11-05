@@ -2091,6 +2091,10 @@ class checkboxInput_CheckboxInput extends external_commonjs_react_commonjs2_reac
     };
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   handleChange(e) {
     if (e) {
       this.setState({
@@ -2125,6 +2129,7 @@ class checkboxInput_CheckboxInput extends external_commonjs_react_commonjs2_reac
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       onChange: this.handleChange.bind(this),
+      onClick: this.handleCheckboxClick.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.checked ? this.props.value : undefined)
     }), this.props.text));
   }
@@ -2160,6 +2165,10 @@ class checkboxOptionsInput_CheckboxOptionsInput extends external_commonjs_react_
     };
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   handleChange(newVal, e) {
     var currentValue = this.state.value;
 
@@ -2192,6 +2201,7 @@ class checkboxOptionsInput_CheckboxOptionsInput extends external_commonjs_react_
       className: this.props.classes.checkbox,
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
+      onClick: this.handleCheckboxClick.bind(this),
       onChange: this.handleChange.bind(this, opt.value),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     }), opt.text))));
@@ -2404,6 +2414,10 @@ class radioOptionsInput_RadioOptionsInput extends external_commonjs_react_common
     }, this.props.onChange.bind(null, value));
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("ul", {
       className: this.props.classes.radioList
@@ -2423,6 +2437,7 @@ class radioOptionsInput_RadioOptionsInput extends external_commonjs_react_common
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       value: opt.value,
+      onClick: this.handleCheckboxClick.bind(this),
       onChange: this.handleChange.bind(this, opt.value),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     }), opt.text))));
@@ -2801,7 +2816,8 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     let labelId = `${this.props.questionId}-label`;
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
       className: this.props.classes.question,
-      id: this.props.questionId
+      id: this.props.questionId,
+      onClick: e => this.handleInputClick(e, this.props.questionSetId, this.props.questionId)
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
       className: this.props.classes.label,
       id: labelId,

@@ -16,6 +16,10 @@ class RadioOptionsInput extends React.Component {
     }, this.props.onChange.bind(null, value));
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     return (
       <ul className={this.props.classes.radioList}>
@@ -35,6 +39,7 @@ class RadioOptionsInput extends React.Component {
                                  : undefined}
                      disabled={this.props.readOnly}
                      value={opt.value}
+                     onClick={this.handleCheckboxClick.bind(this)}
                      onChange={this.handleChange.bind(this, opt.value)}              
                      onBlur={this.props.onBlur.bind(null, this.state.value)} />
               {opt.text}

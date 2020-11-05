@@ -13,6 +13,10 @@ class CheckboxOptionsInput extends React.Component {
     };
   }
 
+  handleCheckboxClick(e) {
+    e.stopPropagation();
+  }
+
   handleChange(newVal, e) {
     var currentValue = this.state.value;
 
@@ -46,6 +50,7 @@ class CheckboxOptionsInput extends React.Component {
                                  ? 'required'
                                  : undefined}
                      disabled={this.props.readOnly}
+                     onClick={this.handleCheckboxClick.bind(this)}
                      onChange={this.handleChange.bind(this, opt.value)}
                      onBlur={this.props.onBlur.bind(null, this.state.value)} />
               {opt.text}
