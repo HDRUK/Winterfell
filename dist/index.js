@@ -2640,7 +2640,7 @@ textInput_TextInput.defaultProps = {
 class buttonInput_ButtonInput extends external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.Component {
   handleClick(e) {
     e.preventDefault();
-    this.props.onClick(this.props.questionSetId, this.props.id);
+    this.props.onClick(e, this.props.questionSetId, this.props.id);
   }
 
   render() {
@@ -2657,11 +2657,9 @@ class buttonInput_ButtonInput extends external_commonjs_react_commonjs2_react_am
 buttonInput_ButtonInput.defaultProps = {
   questionSetId: undefined,
   id: undefined,
-  action: undefined,
   text: 'Add',
   placeholder: undefined,
   class: '',
-  icon: undefined,
   readOnly: false,
   onClick: () => {}
 };
@@ -2818,7 +2816,8 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
     }) : [];
     let labelId = `${this.props.questionId}-label`;
     return /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", {
-      className: this.props.classes.question
+      className: this.props.classes.question,
+      id: this.props.questionId
     }, !!this.props.question ? /*#__PURE__*/external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("label", {
       className: this.props.classes.label,
       id: labelId,
@@ -3306,8 +3305,8 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
     this.props.onQuestionFocus(questionId);
   }
 
-  handleQuestionClick(questionSetId, questionId) {
-    this.props.onQuestionClick(questionSetId, questionId);
+  handleQuestionClick(e, questionSetId, questionId) {
+    this.props.onQuestionClick(e, questionSetId, questionId);
   }
 
   handleSubmit(action) {
