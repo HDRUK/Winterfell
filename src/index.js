@@ -124,8 +124,8 @@ class Winterfell extends React.Component {
   }
 
   handleActionChange(questionSetId, questionId, action) {
-    let {panelId} = this.state.currentPanel;
-    this.props.onActionChange(panelId, questionSetId, questionId, action);
+    let {pageId} = this.state.currentPanel;
+    this.props.onActionChange(pageId, questionSetId, questionId, action);
   }
 
   handleQuestionClick(questionSetId, questionId) {
