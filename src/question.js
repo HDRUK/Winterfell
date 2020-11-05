@@ -26,8 +26,9 @@ class Question extends React.Component {
     this.props.onQuestionFocus(questionId);
   }
 
-  handleInputClick(questionSetId, questionId) {
-    this.props.onQuestionClick(questionSetId, questionId);
+  handleInputClick(e, questionSetId, questionId) {
+    e.preventDefault();
+    this.props.onQuestionClick(e, questionSetId, questionId);
   }
 
   render() {
@@ -120,7 +121,7 @@ class Question extends React.Component {
     let labelId = `${this.props.questionId}-label`;
 
     return (
-      <div className={this.props.classes.question} id={this.props.questionId}>
+      <div className={this.props.classes.question} id={this.props.questionId} onClick={e => this.handleInputClick(e, this.props.questionSetId, this.props.questionId)}>
         {!!this.props.question
           ? (
               <label className={this.props.classes.label}
