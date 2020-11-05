@@ -119,10 +119,6 @@ class Winterfell extends React.Component {
     );
   }
 
-  handleQuestionFocus(questionId) {
-    this.props.onQuestionFocus(questionId);
-  }
-
   handleQuestionClick(e, questionSetId, questionId) {
     this.props.onQuestionClick(e, questionSetId, questionId);
   }
@@ -176,7 +172,6 @@ class Winterfell extends React.Component {
                          renderError={this.props.renderError}
                          renderRequiredAsterisk={this.props.renderRequiredAsterisk}
                          readOnly={this.props.readOnly}
-                         onQuestionFocus={this.handleQuestionFocus.bind(this)}
                          onQuestionClick={this.handleQuestionClick.bind(this)}
                          onAnswerChange={this.handleAnswerChange.bind(this)}
                          onPanelBack={this.handleBackButtonClick.bind(this)}

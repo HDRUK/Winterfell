@@ -35,7 +35,6 @@ class TextareaInput extends React.Component {
                             ? 'required'
                             : undefined}
                 onChange={this.handleChange.bind(this)}
-                onFocus={this.props.onFocus.bind(this)}
                 onBlur={this.props.onBlur.bind(null, this.state.value)} />
     );
   }
@@ -51,8 +50,7 @@ TextareaInput.defaultProps = {
   disabled    : undefined,
   readOnly    : false,
   onChange    : () => {},
-  onBlur      : () => {},
-  onFocus     : () => {}
+  onBlur      : () => {}
 };
 
 export default TextareaInput;

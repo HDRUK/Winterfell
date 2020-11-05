@@ -156,12 +156,8 @@ class QuestionPanel extends React.Component {
     }
   }
 
-  handleQuestionFocus(questionId) {
-    this.props.onQuestionFocus(questionId);
-  }
-
-  handleQuestionClick(questionSetId, questionId) {
-    this.props.onQuestionClick(questionSetId, questionId);
+  handleQuestionClick(e, questionSetId, questionId) {
+    this.props.onQuestionClick(e, questionSetId, questionId);
   }
 
   handleInputKeyDown(e) {
@@ -195,7 +191,6 @@ class QuestionPanel extends React.Component {
                      readOnly={this.props.readOnly}
                      validationErrors={this.state.validationErrors}
                      onAnswerChange={this.handleAnswerChange.bind(this)}
-                     onQuestionFocus={this.handleQuestionFocus.bind(this)}
                      onQuestionClick={this.handleQuestionClick.bind(this)}
                      onQuestionBlur={this.handleQuestionBlur.bind(this)}
                      onKeyDown={this.handleInputKeyDown.bind(this)} />
@@ -275,7 +270,6 @@ QuestionPanel.defaultProps = {
   renderRequiredAsterisk : undefined,
   readOnly               : false,
   onAnswerChange         : () => {},
-  onQuestionFocus        : () => {},
   onQuestionClick        : () => {},
   onSwitchPanel          : () => {},
   onPanelBack            : () => {},

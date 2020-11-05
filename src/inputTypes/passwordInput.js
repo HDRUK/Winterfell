@@ -30,7 +30,6 @@ class PasswordInput extends React.Component {
                          : undefined}
              readOnly={this.props.readOnly}            
              onChange={this.handleChange.bind(this)}
-             onFocus={this.props.onFocus.bind(this)}
              onBlur={this.props.onBlur.bind(null, this.state.value)}
              onKeyDown={this.props.onKeyDown} />
     );

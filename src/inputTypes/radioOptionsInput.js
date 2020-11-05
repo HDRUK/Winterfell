@@ -36,7 +36,6 @@ class RadioOptionsInput extends React.Component {
                      disabled={this.props.readOnly}
                      value={opt.value}
                      onChange={this.handleChange.bind(this, opt.value)}              
-                     onFocus={this.props.onFocus.bind(this)}
                      onBlur={this.props.onBlur.bind(null, this.state.value)} />
               {opt.text}
             </label>
@@ -55,8 +54,7 @@ RadioOptionsInput.defaultProps = {
   options  : [],
   readOnly : false,
   onChange : () => {},
-  onBlur   : () => {},
-  onFocus  : () => {}
+  onBlur   : () => {}
 };
 
 export default RadioOptionsInput;

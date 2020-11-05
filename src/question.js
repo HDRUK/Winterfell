@@ -78,7 +78,6 @@ class Question extends React.Component {
                           questionAnswers={this.props.questionAnswers}
                           validationErrors={this.props.validationErrors}
                           onAnswerChange={this.props.onAnswerChange}
-                          onQuestionFocus={this.props.onQuestionFocus}
                           onQuestionClick={this.props.onQuestionClick}
                           onQuestionBlur={this.props.onQuestionBlur}
                           onKeyDown={this.props.onKeyDown} />
@@ -159,7 +158,6 @@ class Question extends React.Component {
                readOnly={this.props.readOnly}
                classes={this.props.classes}
                onChange={this.handleInputChange.bind(this, this.props.questionId)}
-               onFocus={this.handleInputFocus.bind(this, this.props.questionId)}
                onClick={this.handleInputClick.bind(this, this.props.questionSetId, this.props.questionId)}
                onBlur={this.handleInputBlur.bind(this, this.props.questionId)}
                onKeyDown={this.props.onKeyDown}

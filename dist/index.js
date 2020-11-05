@@ -2125,7 +2125,6 @@ class checkboxInput_CheckboxInput extends external_commonjs_react_commonjs2_reac
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.checked ? this.props.value : undefined)
     }), this.props.text));
   }
@@ -2194,7 +2193,6 @@ class checkboxOptionsInput_CheckboxOptionsInput extends external_commonjs_react_
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       onChange: this.handleChange.bind(this, opt.value),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     }), opt.text))));
   }
@@ -2209,8 +2207,7 @@ checkboxOptionsInput_CheckboxOptionsInput.defaultProps = {
   options: [],
   readOnly: false,
   onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {}
+  onBlur: () => {}
 };
 /* harmony default export */ var checkboxOptionsInput = (checkboxOptionsInput_CheckboxOptionsInput);
 // CONCATENATED MODULE: ./inputTypes/emailInput.js
@@ -2248,7 +2245,6 @@ class emailInput_EmailInput extends external_commonjs_react_commonjs2_react_amd_
       disabled: this.props.disabled || this.props.readOnly,
       required: this.props.required ? 'required' : undefined,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value),
       onKeyDown: this.props.onKeyDown
     });
@@ -2267,8 +2263,7 @@ emailInput_EmailInput.defaultProps = {
   readOnly: false,
   onChange: () => {},
   onBlur: () => {},
-  onKeyDown: () => {},
-  onFocus: () => {}
+  onKeyDown: () => {}
 };
 /* harmony default export */ var emailInput = (emailInput_EmailInput);
 // CONCATENATED MODULE: ./inputTypes/fileInput.js
@@ -2298,7 +2293,6 @@ class fileInput_FileInput extends external_commonjs_react_commonjs2_react_amd_Re
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     });
   }
@@ -2313,8 +2307,7 @@ fileInput_FileInput.defaultProps = {
   value: '',
   readOnly: false,
   onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {}
+  onBlur: () => {}
 };
 /* harmony default export */ var fileInput = (fileInput_FileInput);
 // CONCATENATED MODULE: ./inputTypes/hiddenInput.js
@@ -2373,7 +2366,6 @@ class passwordInput_PasswordInput extends external_commonjs_react_commonjs2_reac
       required: this.props.required ? 'required' : undefined,
       readOnly: this.props.readOnly,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value),
       onKeyDown: this.props.onKeyDown
     });
@@ -2432,7 +2424,6 @@ class radioOptionsInput_RadioOptionsInput extends external_commonjs_react_common
       disabled: this.props.readOnly,
       value: opt.value,
       onChange: this.handleChange.bind(this, opt.value),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     }), opt.text))));
   }
@@ -2447,8 +2438,7 @@ radioOptionsInput_RadioOptionsInput.defaultProps = {
   options: [],
   readOnly: false,
   onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {}
+  onBlur: () => {}
 };
 /* harmony default export */ var radioOptionsInput = (radioOptionsInput_RadioOptionsInput);
 // CONCATENATED MODULE: ./inputTypes/selectInput.js
@@ -2488,7 +2478,6 @@ class selectInput_SelectInput extends external_commonjs_react_commonjs2_react_am
       required: this.props.required ? 'required' : undefined,
       disabled: this.props.readOnly,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     }, options);
   }
@@ -2516,8 +2505,7 @@ selectInput_SelectInput.defaultProps = {
   options: [],
   readOnly: false,
   onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {}
+  onBlur: () => {}
 };
 /* harmony default export */ var selectInput = (selectInput_SelectInput);
 // CONCATENATED MODULE: ./inputTypes/textareaInput.js
@@ -2555,7 +2543,6 @@ class textareaInput_TextareaInput extends external_commonjs_react_commonjs2_reac
       disabled: this.props.disabled || this.props.readOnly,
       required: this.props.required ? 'required' : undefined,
       onChange: this.handleChange.bind(this),
-      onFocus: this.props.onFocus.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value)
     });
   }
@@ -2572,8 +2559,7 @@ textareaInput_TextareaInput.defaultProps = {
   disabled: undefined,
   readOnly: false,
   onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {}
+  onBlur: () => {}
 };
 /* harmony default export */ var textareaInput = (textareaInput_TextareaInput);
 // CONCATENATED MODULE: ./inputTypes/textInput.js
@@ -2612,7 +2598,6 @@ class textInput_TextInput extends external_commonjs_react_commonjs2_react_amd_Re
       required: this.props.required ? 'required' : undefined,
       onChange: this.handleChange.bind(this),
       onBlur: this.props.onBlur.bind(null, this.state.value),
-      onFocus: this.props.onFocus.bind(this),
       onKeyDown: this.props.onKeyDown
     });
   }
@@ -2630,8 +2615,7 @@ textInput_TextInput.defaultProps = {
   readOnly: false,
   onChange: () => {},
   onBlur: () => {},
-  onKeyDown: () => {},
-  onFocus: () => {}
+  onKeyDown: () => {}
 };
 /* harmony default export */ var textInput = (textInput_TextInput);
 // CONCATENATED MODULE: ./inputTypes/buttonInput.js
@@ -2793,7 +2777,6 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
           questionAnswers: this.props.questionAnswers,
           validationErrors: this.props.validationErrors,
           onAnswerChange: this.props.onAnswerChange,
-          onQuestionFocus: this.props.onQuestionFocus,
           onQuestionClick: this.props.onQuestionClick,
           onQuestionBlur: this.props.onQuestionBlur,
           onKeyDown: this.props.onKeyDown
@@ -2843,7 +2826,6 @@ class question_Question extends external_commonjs_react_commonjs2_react_amd_Reac
       readOnly: this.props.readOnly,
       classes: this.props.classes,
       onChange: this.handleInputChange.bind(this, this.props.questionId),
-      onFocus: this.handleInputFocus.bind(this, this.props.questionId),
       onClick: this.handleInputClick.bind(this, this.props.questionSetId, this.props.questionId),
       onBlur: this.handleInputBlur.bind(this, this.props.questionId),
       onKeyDown: this.props.onKeyDown
@@ -3102,12 +3084,8 @@ class questionPanel_QuestionPanel extends external_commonjs_react_commonjs2_reac
     }
   }
 
-  handleQuestionFocus(questionId) {
-    this.props.onQuestionFocus(questionId);
-  }
-
-  handleQuestionClick(questionSetId, questionId) {
-    this.props.onQuestionClick(questionSetId, questionId);
+  handleQuestionClick(e, questionSetId, questionId) {
+    this.props.onQuestionClick(e, questionSetId, questionId);
   }
 
   handleInputKeyDown(e) {
@@ -3141,7 +3119,6 @@ class questionPanel_QuestionPanel extends external_commonjs_react_commonjs2_reac
         readOnly: this.props.readOnly,
         validationErrors: this.state.validationErrors,
         onAnswerChange: this.handleAnswerChange.bind(this),
-        onQuestionFocus: this.handleQuestionFocus.bind(this),
         onQuestionClick: this.handleQuestionClick.bind(this),
         onQuestionBlur: this.handleQuestionBlur.bind(this),
         onKeyDown: this.handleInputKeyDown.bind(this)
@@ -3197,7 +3174,6 @@ questionPanel_QuestionPanel.defaultProps = {
   renderRequiredAsterisk: undefined,
   readOnly: false,
   onAnswerChange: () => {},
-  onQuestionFocus: () => {},
   onQuestionClick: () => {},
   onSwitchPanel: () => {},
   onPanelBack: () => {},
@@ -3303,10 +3279,6 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
     this.handleSwitchPanel.call(this, this.panelHistory[this.panelHistory.length - 1], true);
   }
 
-  handleQuestionFocus(questionId) {
-    this.props.onQuestionFocus(questionId);
-  }
-
   handleQuestionClick(e, questionSetId, questionId) {
     this.props.onQuestionClick(e, questionSetId, questionId);
   }
@@ -3361,7 +3333,6 @@ class index_Winterfell extends external_commonjs_react_commonjs2_react_amd_React
       renderError: this.props.renderError,
       renderRequiredAsterisk: this.props.renderRequiredAsterisk,
       readOnly: this.props.readOnly,
-      onQuestionFocus: this.handleQuestionFocus.bind(this),
       onQuestionClick: this.handleQuestionClick.bind(this),
       onAnswerChange: this.handleAnswerChange.bind(this),
       onPanelBack: this.handleBackButtonClick.bind(this),

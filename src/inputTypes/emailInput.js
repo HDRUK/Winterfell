@@ -35,7 +35,6 @@ class EmailInput extends React.Component {
                           ? 'required'
                           : undefined}
               onChange={this.handleChange.bind(this)}
-              onFocus={this.props.onFocus.bind(this)}
               onBlur={this.props.onBlur.bind(null, this.state.value)}
               onKeyDown={this.props.onKeyDown} />
     );
@@ -53,8 +52,7 @@ EmailInput.defaultProps = {
   readOnly    : false,
   onChange    : () => {},
   onBlur      : () => {},
-  onKeyDown   : () => {},
-  onFocus     : () => {}
+  onKeyDown   : () => {}
 };
 
 export default EmailInput;
